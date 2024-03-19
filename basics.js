@@ -5,46 +5,48 @@ const calcSum = (a, b) => {
   return a + b
 }
 
-/*
-Test cases:
-calcSum(1,2) Expected 3
-calcSum(1,10) Expected 11
-calcSum(99,1) Expected 100
-*/
+
+//Test cases:
+console.log(calcSum(1, 2)) //Expected 3
+console.log(calcSum(1, 10))//Expected 11
+console.log(calcSum(99, 1))//Expected 100
+
 
 // ========================================
 
 // Write a function that takes two values, say a and b, as arguments
 // Return true if the two values are equal and of the same type
 const strictEquality = (a, b) => {
-  return
-}
+  return a === b && typeof a === typeof b;
+};
+
 
 /*
 Test cases:
-myFunction(2, 3) Expected false
-myFunction(3, 3) Expected true
-myFunction(1, '1') Expected false
-myFunction('10', '10') Expected true 
 */
+console.log(strictEquality(2, 3)) //xpected false
+console.log(strictEquality(3, 3)) //Expected true
+console.log(strictEquality(1, '1')) //Expected false
+console.log(strictEquality('10', '10')) // Expected true 
+
 
 // ========================================
 
 // Write a function that takes a value as argument
 // Return the type of the value
 const getTypeOfValue = (a) => {
-  return
+  return typeof a;
 }
 
-/*
-Test cases:
-myFunction(1) Expected 'number'
-myFunction(false) Expected 'boolean'
-myFunction({}) Expected 'object'
-myFunction(null) Expected 'object'
-myFunction('string') Expected 'string'
-myFunction(['array']) Expected 'object'
-*/
+
+ // Test cases:
+console.log(getTypeOfValue(1)) //Expected 'number'
+console.log(getTypeOfValue(false)) //Expected 'boolean'
+console.log(getTypeOfValue({})) //Expected 'object'
+console.log(getTypeOfValue(null)) //Expected 'object'
+console.log(getTypeOfValue('string')) //Expected 'string'
+console.log(getTypeOfValue(['array'])) //Expected 'object'
+
 
 // ========================================
 
@@ -55,12 +57,12 @@ const getFirstChar = (a, n) => {
   return
 }
 
-/*
-Test Cases:
-myFunction('abcd') Expected 'a'
-myFunction('zyxbwpl') Expected 'z'
-myFunction('gfedcba') Expected 'g'
-*/
+
+// Test Cases:
+console.log(getFirstChar('abcd')) //Expected 'a'
+console.log(getFirstChar('zyxbwpl')) //Expected 'z'
+console.log(myFunction('gfedcba')) //Expected 'g'
+
 
 // ========================================
 
