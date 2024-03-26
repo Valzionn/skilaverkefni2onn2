@@ -1,3 +1,4 @@
+
 // Write a function that takes two numbers (a and b) as argument
 //  Sum a and b
 // Return the result
@@ -21,9 +22,9 @@ const strictEquality = (a, b) => {
 };
 
 
-/*
-Test cases:
-*/
+
+//Test cases:
+
 console.log(strictEquality(2, 3)) //xpected false
 console.log(strictEquality(3, 3)) //Expected true
 console.log(strictEquality(1, '1')) //Expected false
@@ -54,14 +55,14 @@ console.log(getTypeOfValue(['array'])) //Expected 'object'
 // Return the 1st character of the strgin a
 // Tip: look up the string prototype function slice() or split()
 const getFirstChar = (a, n) => {
-  return
+  return a.slice(0,1) // a.split('')[0]
 }
 
 
 // Test Cases:
 console.log(getFirstChar('abcd')) //Expected 'a'
-console.log(getFirstChar('zyxbwpl')) //Expected 'z'
-console.log(myFunction('gfedcba')) //Expected 'g'
+console.log(getFirstChar('myxbwpl')) //Expected 'm'
+console.log(getFirstChar('afedcba')) //Expected 'a'
 
 
 // ========================================
@@ -70,15 +71,16 @@ console.log(myFunction('gfedcba')) //Expected 'g'
 // Return the nth character of 'a'
 // Tip: look up the string prototype function slice() or split()
 const getNthChar = (a, n) => {
-  return
+  return a.slice(n -1, n) // a.split('')(n - 1)
 }
 
-/*
-Test Cases:
-myFunction('abcd',1) Expected 'a'
-myFunction('zyxbwpl',5) Expected 'w'
-myFunction('gfedcba',3) Expected 'e'
-*/
+
+// Test Cases:
+console.log(getNthChar('zbcd',1)) //Expected 'z'
+console.log(getNthChar('zyxbipl',5)) //Expected 'i'
+console.log(getNthChar('gfndcba',3)) //Expected 'n'
+console.log(getNthChar('gfndcba',1)) //Expected 'n'
+
 
 // ========================================
 
@@ -87,15 +89,16 @@ myFunction('gfedcba',3) Expected 'e'
 // Return the result
 // Tip: look up the string prototype function slice() or split()
 const extractFirstHalfOfString = (a) => {
-  return
+  const helmingur = Math.ceil(a.length / 2)
+  return a.slice(0, helmingur) // return a.split('').slice(0, helmingur).join('')
 }
 
-/*
-Test Cases:
-myFunction('abcdefgh') Expected 'abcd'
-myFunction('1234') Expected '12'
-myFunction('gedcba') Expected 'ged'
-*/
+
+// Test Cases:
+console.log(extractFirstHalfOfString('abcdefgh')) //Expected 'abcd'
+console.log(extractFirstHalfOfString('1234')) // Expected '12'
+console.log(extractFirstHalfOfString('gedcba')) // Expected 'ged'
+
 
 // ========================================
 
@@ -103,15 +106,15 @@ myFunction('gedcba') Expected 'ged'
 // Remove the last 3 characters of a
 // Return the result
 const removeLastNChractersOfString = (a) => {
-  return
+  return a.slice(0, -3)
 }
 
-/*
-Test cases:
-myFunction('abcdefg') Expected 'abcd'
-myFunction('1234') Expected '1'
-myFunction('fgedcba') Expected 'fged'
-*/
+
+//Test cases:
+console.log(removeLastNChractersOfString('abcdefg')) //Expected 'abcd'
+console.log(removeLastNChractersOfString('1234')) //Expected '1'
+console.log(removeLastNChractersOfString('fgedcba')) //Expected 'fged'
+
 
 // ========================================
 
@@ -120,16 +123,16 @@ myFunction('fgedcba') Expected 'fged'
 // Otherwise, return false
 // Tip: How does the % operator work?
 const checkIfNumberIsEven = (a) => {
-  return
+  return a % 2 === 0
 }
 
-/*
-Test Cases:
-myFunction(10) Expected true
-myFunction(-4) Expected true
-myFunction(5) Expected false
-myFunction(-111) Expected false
-*/
+
+// Test Cases:
+console.log(checkIfNumberIsEven(10)) //Expected true
+console.log(checkIfNumberIsEven(-4)) //Expected true
+console.log(checkIfNumberIsEven(5)) //Expected false
+console.log(checkIfNumberIsEven(-111)) //Expected false
+ 
 
 // ========================================
 
