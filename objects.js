@@ -3,28 +3,35 @@
 // In other words, it should not be null or undefined or false
 // Return false otherwise
 const checkIfPropertyExistsAndTruthy = (a, b) => {
-  return;
+  if (a.hasOwnProperty(b)) {
+    return !!a[b]
+  }
+  return false
 };
-/*
-Test cases:
-myFunction({a:1,b:2,c:3},'b') Expected true
-myFunction({x:'a',y:null,z:'c'},'y') Expected false
-myFunction({x:'a',b:'b',z:undefined},'z') Expected false
-*/
+
+
+//Test cases:
+console.log(checkIfPropertyExistsAndTruthy({a:1,b:2,c:3},'b')) //Expected true
+console.log(checkIfPropertyExistsAndTruthy({x:'a',y:null,z:'c'},'y')) //Expected false
+console.log(checkIfPropertyExistsAndTruthy({x:'a',b:'b',z:undefined},'z')) //Expected false
+
 
 // ========================================
 
 // Write a function that takes an object with two properties as argument
 // It should return the value of the property with key country
 const getCountry = (obj) => {
-  return;
+  if (obj.hasOwnProperty('country')) {
+  return obj.country;
+  }
+  return 'ekkert'
 };
 
-/*
-Test cases:
-myFunction({ continent: 'Asia', country: 'Japan' }) Expected 'Japan'
-myFunction({ country: 'Sweden', continent: 'Europe' }) Expected 'Sweden'
-*/
+
+//Test cases:
+console.log(getCountry({ continent: 'Asia', country: 'Japan' })) //Expected 'Japan'
+console.log(getCountry({ country: 'Sweden', continent: 'Europe' })) //Expected 'Sweden'
+
 
 // ========================================
 
@@ -32,28 +39,28 @@ myFunction({ country: 'Sweden', continent: 'Europe' }) Expected 'Sweden'
 // It should return the value of the property with key 'prop-2'
 // Tip: you might want to use the square brackets to access the property
 const getWeirdKeyValue = (obj) => {
-  return;
+  return obj['prop-2']
 };
 
-/*
-Test cases:
-myFunction({  one: 1,  'prop-2': 2}) Expected 2
-myFunction({  'prop-2': 'two',  prop: 'test'}) Expected 'two'
-*/
+
+//Test cases:
+console.log(getWeirdKeyValue({  one: 1,  'prop-2': 2})) //Expected 2
+console.log(getWeirdKeyValue({  'prop-2': 'two',  prop: 'test'})) //Expected 'two'
+
 
 // ========================================
 
 // Write a function that takes an object with two properties and a string as arguments
 // It should return the value of the property with key equal to the value of the string
 const getPropertyByString = (obj, key) => {
-  return;
+  return obj[key]
 };
 
-/*
-Test cases:
-myFunction({  continent: 'Asia',  country: 'Japan'}, 'continent') Expected 'Asia'
-myFunction({  country: 'Sweden',  continent: 'Europe'}, 'country') Expected 'Sweden'
-*/
+
+//Test cases:
+console.log(getPropertyByString({  continent: 'Asia',  country: 'Japan'}, 'continent')) //Expected 'Asia'
+console.log(getPropertyByString({  country: 'Sweden',  continent: 'Europe'}, 'country')) //Expected 'Sweden'
+
 
 // ========================================
 
@@ -62,15 +69,15 @@ myFunction({  country: 'Sweden',  continent: 'Europe'}, 'country') Expected 'Swe
 // Return false otherwise
 // NOTE: Test case 3 is a bit tricky because the value of property 'z' is undefined, but the property itself exists
 const checkIfPropertyExists = (a, b) => {
-  return;
+  return b in a
 };
 
-/*
-Test cases:
-myFunction({a:1,b:2,c:3},'b') Expected true
-myFunction({x:'a',y:'b',z:'c'},'a') Expected false
-myFunction({x:'a',y:'b',z:undefined},'z') Expected true
-*/
+
+// Test cases:
+console.log(checkIfPropertyExists({a:1,b:2,c:3},'b')) //Expected true
+console.log(checkIfPropertyExists({x:'a',y:'b',z:'c'},'a')) //Expected false
+console.log(checkIfPropertyExists({x:'a',y:'b',z:undefined},'z')) //Expected true
+
 
 // ========================================
 
@@ -78,15 +85,15 @@ myFunction({x:'a',y:'b',z:undefined},'z') Expected true
 // Create an object that has a property with key 'key' and a value equal to the string
 // Return the object
 const createObjectWithKeyValue = (a) => {
-  return;
+  return {key:a}
 };
 
-/*
-Test cases:
-myFunction('a') Expected {key:'a'}
-myFunction('z') Expected {key:'z'}
-myFunction('b') Expected {key:'b'}
-*/
+
+//Test cases:
+console.log(createObjectWithKeyValue('a')) //Expected {key:'a'}
+console.log(createObjectWithKeyValue('z')) //Expected {key:'z'}
+console.log(createObjectWithKeyValue('b')) //Expected {key:'b'}
+
 
 // ========================================
 
@@ -94,15 +101,17 @@ myFunction('b') Expected {key:'b'}
 // Create an object that has a property with key 'a' and a value of 'b'
 // Return the object
 const createObjectWithKeyAndValue = (a, b) => {
-  return;
+  const hlutur = {}
+  hlutur[a] = b;
+  return hlutur
 };
 
-/*
-Test cases:
-myFunction('a','b') Expected {a:'b'}
-myFunction('z','x') Expected {z:'x'}
-myFunction('b','w') Expected {b:'w'}
-*/
+
+//Test cases:
+console.log(createObjectWithKeyAndValue('a','b')) //Expected {a:'b'}
+console.log(createObjectWithKeyAndValue('z','x')) //Expected {z:'x'}
+console.log(createObjectWithKeyAndValue('b','w')) //Expected {b:'w'}
+
 
 // ========================================
 
@@ -110,30 +119,34 @@ myFunction('b','w') Expected {b:'w'}
 // Create an object that has properties with keys 'a' and corresponding values 'b'
 // Return the object
 const createObjectFromArrays = (a, b) => {
-  return;
+  const annarHlutur = {}
+  for (let i = 0; i < a.length; i++) {
+    annarHlutur[a[i]] = b[i]
+  }
+  return annarHlutur
 };
 
-/*
-Test cases:
-myFunction(['a','b','c'],[1,2,3]) Expected {a:1,b:2,c:3}
-myFunction(['w','x','y','z'],[10,9,5,2]) Expected {w:10,x:9,y:5,z:2}
-myFunction([1,'b'],['a',2]) Expected {1:'a',b:2}
-*/
+
+// Test cases:
+console.log(createObjectFromArrays(['a','b','c'],[1,2,3])) // Expected {a:1,b:2,c:3}
+console.log(createObjectFromArrays(['w','x','y','z'],[10,9,5,2])) // Expected {w:10,x:9,y:5,z:2}
+console.log(createObjectFromArrays([1,'b'],['a',2])) // Expected {1:'a',b:2}
+
 
 // ========================================
 // Write a function that takes an object (a) as argument
 // Return an array with all object keys
 // Tip: Object.keys()
 const extractKeysFromObject = (a) => {
-  return;
+  return Object.keys(a)
 };
 
-/*
-Test cases:
-myFunction({a:1,b:2,c:3}) Expected ['a','b','c']
-myFunction({j:9,i:2,x:3,z:4}) Expected ['j','i','x','z']
-myFunction({w:15,x:22,y:13}) Expected ['w','x','y']
-*/
+
+//Test cases:
+console.log(extractKeysFromObject({a:1,b:2,c:3})) //Expected ['a','b','c']
+console.log(extractKeysFromObject({j:9,i:2,x:3,z:4})) //Expected ['j','i','x','z']
+console.log(extractKeysFromObject({w:15,x:22,y:13})) //Expected ['w','x','y']
+
 
 // ========================================
 // Write a function that takes an object as argument
@@ -141,30 +154,36 @@ myFunction({w:15,x:22,y:13}) Expected ['w','x','y']
 // Return the property 'b' of object 'a' inside the original object if it exists
 // If not, return undefined
 const getNestedProperty = (obj) => {
-  return;
+  if (obj.hasOwnProperty('a')) {
+    if (typeof obj.a === 'object' && obj.a.hasOwnProperty('b')) {
+      return obj.a.b;
+    }
+  }
+  return undefined
 };
 
-/*
-Test cases:
-myFunction({a:1}) Expected undefined
-myFunction({a:{b:{c:3}}}) Expected {c:3}
-myFunction({b:{a:1}}) Expected undefined
-myFunction({a:{b:2}}) Expected 2
-*/
+
+// Test cases:
+console.log(getNestedProperty({a:1})) //Expected undefined
+console.log(getNestedProperty({a:{b:{c:3}}})) //Expected {c:3}
+console.log(getNestedProperty({b:{a:1}})) //Expected undefined
+console.log(getNestedProperty({a:{b:2}})) //Expected 2
+
 
 // ========================================
 // Write a function that takes an object (a) as argument
 // Return the sum of all object values
 // Tip: Object.values()
 const calcSumOfAllObjectValues = (a) => {
-  return;
+  return Object.values(a).reduce((acc, curr) => acc + curr, 0)
 };
-/*
-Test cases:
-myFunction({a:1,b:2,c:3}) Expected 6
-myFunction({j:9,i:2,x:3,z:4}) Expected 18
-myFunction({w:15,x:22,y:13}) Expected 50
-*/
+
+
+//Test cases:
+console.log(calcSumOfAllObjectValues({a:1,b:2,c:3})) //Expected 6
+console.log(calcSumOfAllObjectValues({j:9,i:2,x:3,z:4})) //Expected 18
+console.log(calcSumOfAllObjectValues({w:15,x:22,y:13})) //Expected 50
+
 // ========================================
 
 // Write a function that takes an object as argument
@@ -172,15 +191,17 @@ myFunction({w:15,x:22,y:13}) Expected 50
 // except for the property with key 'b'
 // Tip: Spread syntax
 const removePropertyB = (obj) => {
-  return;
+  const ekkiB = { ...obj };
+  delete ekkiB.b
+  return ekkiB
 };
 
-/*
-Test cases:
-myFunction({ a: 1, b: 7, c: 3 }) Expected { a: 1, c: 3 }
-myFunction({ b: 0, a: 7, d: 8 }) Expected { a: 7, d: 8 }
-myFunction({ e: 6, f: 4, b: 5, a: 3 }) Expected { e: 6, f: 4, a: 3 }
-*/
+
+// Test cases:
+console.log(removePropertyB({ a: 1, b: 7, c: 3 })) //Expected { a: 1, c: 3 }
+console.log(removePropertyB({ b: 0, a: 7, d: 8 })) //Expected { a: 7, d: 8 }
+console.log(removePropertyB({ e: 6, f: 4, b: 5, a: 3 })) //Expected { e: 6, f: 4, a: 3 }
+
 
 // ========================================
 
@@ -192,13 +213,17 @@ myFunction({ e: 6, f: 4, b: 5, a: 3 }) Expected { e: 6, f: 4, a: 3 }
 // It should have the properties 'a', 'b', 'c', 'd', and 'e'
 // Tip: Spread syntax
 const mergeAndFixObjects = (x, y) => {
-  return;
+  if (y.hasOwnProperty('b')) {
+  y.d = y.b
+  delete y.b
+  }
+  return {...x, ...y}
 };
-/*
-Test cases:
-myFunction({ a: 1, b: 2 }, { c: 3, b: 4, e: 5 }) Expected { a: 1, b: 2, c: 3, e: 5, d: 4}
-myFunction({ a: 5, b: 4 }, { c: 3, b: 1, e: 2 }) Expected { a: 5, b: 4, c: 3, e: 2, d: 1}
-*/
+
+// Test cases:
+console.log(mergeAndFixObjects({ a: 1, b: 2 }, { c: 3, b: 4, e: 5 })) //Expected { a: 1, b: 2, c: 3, e: 5, d: 4}
+console.log(mergeAndFixObjects({ a: 5, b: 4 }, { c: 3, b: 1, e: 2 })) //Expected { a: 5, b: 4, c: 3, e: 2, d: 1}
+
 
 // ========================================
 
@@ -206,12 +231,12 @@ myFunction({ a: 5, b: 4 }, { c: 3, b: 1, e: 2 }) Expected { a: 5, b: 4, c: 3, e:
 // Multiply all values of 'a' by 'b'
 // Return the resulting object
 const multipyAllValuesByB = (a, b) => {
-  return;
+  return Object.fromEntries(Object.entries(a).map(([key, value]) => [key, value * b]))
 };
 
-/*
-Test cases:
-myFunction({a:1,b:2,c:3},3) Expected {a:3,b:6,c:9}
-myFunction({j:9,i:2,x:3,z:4},10) Expected {j:90,i:20,x:30,z:40}
-myFunction({w:15,x:22,y:13},6) Expected {w:90,x:132,y:78}
-*/
+
+// Test cases:
+console.log(multipyAllValuesByB({a:1,b:2,c:3},3)) //Expected {a:3,b:6,c:9}
+console.log(multipyAllValuesByB({j:9,i:2,x:3,z:4},10)) //Expected {j:90,i:20,x:30,z:40}
+console.log(multipyAllValuesByB({w:15,x:22,y:13},6)) //Expected {w:90,x:132,y:78}
+

@@ -18,7 +18,7 @@ console.log(calcSum(99, 1))//Expected 100
 // Write a function that takes two values, say a and b, as arguments
 // Return true if the two values are equal and of the same type
 const strictEquality = (a, b) => {
-  return a === b && typeof a === typeof b;
+  return a === b && typeof a === typeof b
 };
 
 
@@ -36,7 +36,7 @@ console.log(strictEquality('10', '10')) // Expected true
 // Write a function that takes a value as argument
 // Return the type of the value
 const getTypeOfValue = (a) => {
-  return typeof a;
+  return typeof a
 }
 
 
@@ -161,14 +161,14 @@ console.log(getPercentageOfNumber(500,25)) //Expected 125
 // - Power operator is either Math.pow or **
 //   - e.g. 2**2 = 4
 const useAllTheOperators = (a, b, c, d, e, f) => {
-  return
+  return ((a + b) - c) * (d / e) ** f
 }
 
-/*
-Test cases:
-myFunction(6,5,4,3,2,1) Expected 10.5
-myFunction(6,2,1,4,2,3) Expected 2744
-myFunction(2,3,6,4,2,3) Expected -8
-*/
+
+//Test cases:
+console.log(useAllTheOperators(6,5,4,3,2,1)) //Expected 10.5
+console.log(useAllTheOperators(6,2,1,4,2,3)) //Expected 2744
+console.log(useAllTheOperators(2,3,6,4,2,3)) //Expected -8
+
 
 // ========================================
